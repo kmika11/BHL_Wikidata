@@ -1,2 +1,2 @@
-# NDSR-BHL
-Repository for project items relating to collaborations between the Biodiversity Heritage Library and Wikidata.
+# BHL_Wikidata
+Let's add BHL data to Wikidata! 
