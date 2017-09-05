@@ -1,0 +1,19 @@
+# SPARQL queries that work/are interesting
+
+## People (items) with BHL CreatorIDs and VIAF IDs 
+
+SELECT ?person ?personLabel ?BHLCreatorID ?VIAFid WHERE {
+  ?person wdt:P31 wd:Q5.
+  ?person wdt:P4081 ?BHLCreatorID.
+  ?person wdt:P214 ?VIAFid.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+
+## People (items) with BHL Creator IDs, but no VIAF IDs
+
+SELECT ?person ?personLabel ?BHLCreatorID ?VIAFid WHERE {
+  ?person wdt:P31 wd:Q5.
+  ?person wdt:P4081 ?BHLCreatorID.
+  FILTER NOT EXISTS { ?person wdt:P214 ?VIAFid }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
